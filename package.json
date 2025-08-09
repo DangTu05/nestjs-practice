@@ -27,6 +27,8 @@
     "@nestjs/mapped-types": "^2.1.0",
     "@nestjs/mongoose": "^11.0.3",
     "@nestjs/platform-express": "^10.4.20",
+    "@types/bcrypt": "^6.0.0",
+    "bcrypt": "^6.0.0",
     "mongoose": "^8.17.1",
     "reflect-metadata": "0.1.13",
     "rxjs": "7.2.0"
