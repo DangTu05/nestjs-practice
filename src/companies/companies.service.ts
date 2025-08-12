@@ -8,6 +8,7 @@ import mongoose, { Model } from 'mongoose';
 import { IUser } from 'src/users/users.interface';
 import { ObjectId } from 'bson';
 import { isEmpty } from 'class-validator';
+import { ResponseMessage } from 'src/decorator/customize';
 // const aqp = (await import('api-query-params')).default;
 
 @Injectable()
@@ -24,18 +25,14 @@ export class CompaniesService {
       },
     });
   }
-
   findAll = async (
     currentPage: number,
     limit: number,
     qs: Record<string, any>,
   ) => {
     const { sort = 'createdAt', ...filter } = qs;
-
     delete filter.page;
     delete filter.limit;
-    console.log(filter);
-    
     const offset = (+currentPage - 1) * +limit;
     const defaultLimit = +limit ? +limit : 10;
     const [result, totalItems] = await Promise.all([
