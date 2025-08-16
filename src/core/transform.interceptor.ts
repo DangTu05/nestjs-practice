@@ -30,12 +30,12 @@ export class TransformInterceptor<T>
         statusCode: context.switchToHttp().getResponse().statusCode,
         message: data.message,
         data: {
-          result: data,
           message:
             this.reflector.get<string>(
               RESPONSE_MESSAGE,
               context.getHandler(),
             ) || '',
+          result: data,
           meta: {}, // if this is supposed to be the actual return then replace {} with data.result
         },
       })),

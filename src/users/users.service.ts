@@ -44,4 +44,13 @@ export class UsersService {
   remove = async (id: string) => {
     return await this.userModel.deleteOne({ _id: id });
   };
+  saveRefreshToken = async (refreshToken: string, _id: string) => {
+    return await this.userModel.updateOne(
+      { _id: _id },
+      { refresh_token: refreshToken },
+    );
+  };
+  findUserByToken = async (refreshToken: string) => {
+    return await this.userModel.findOne({ refresh_token: refreshToken });
+  };
 }

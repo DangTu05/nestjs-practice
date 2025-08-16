@@ -22,8 +22,15 @@ export class User {
 
   @Prop()
   address: string;
+
   @Prop()
   role: string;
+
+  @Prop()
+  refresh_token: string;
+
+  @Prop({ default: false })
+  deleted: boolean;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);
